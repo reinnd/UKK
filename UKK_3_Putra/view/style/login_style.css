@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 main{
@@ -12,15 +13,21 @@ main{
     display: grid;
     place-items: center;
     padding-top: 12vh;
+    
+}
+
+main .box .box2 form fieldset{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 main .box{
     border: 1px black solid;
-    width: 22em;
-    height: 18em;
+    width: auto;
+    height: auto;
     text-align: center;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -30,6 +37,7 @@ main .box2{
     border: 1px black solid;
     width: auto;
     height: 88%;
+    padding-bottom: 1em;
 }
 
 main .box input{
@@ -37,21 +45,23 @@ main .box input{
     border-radius: 5px;
     width: 20em;
     height: 2.4em;
+    margin-top: 1em;
 }
 
-main .box button{
+main .box button.login{
     border: 1px solid rgb(221, 221, 221);
     color: azure;
     border-radius: 8px;
     background-color: #639b96;
     background-image: linear-gradient(102deg, #6da7a1 9%, #6ca3a3 60%, #5195a1 93%);
-    width: 20em;
-    height: 2.4em;
+    width: 100%;
+    padding: 0.8em;
     transition: 0.3s ease 0s;
+    margin: 1em 0.3em 0 0.3em;
 }
 
-main .box button:hover{
-    transform: scale(1.1);
+main .box button.login:hover{
+    /* transform: scale(1.1); */
     border: 1px solid rgb(78, 77, 77);
     background-image: linear-gradient(102deg, #94c9c3 9%, #76c5c5 60%, #55b3c4 93%);
 }
