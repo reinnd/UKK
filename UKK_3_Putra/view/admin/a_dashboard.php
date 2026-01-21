@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/admin_style.css?v=1.1">
+    <link rel="stylesheet" href="../style/admin_style.css?v=1.3">
 </head>
 <body>
     <header>
@@ -18,6 +18,17 @@
     <div class="container">
         <nav class="sidebar">
             <p>Something</p>
+            <div class="dropdown">
+                <button>aspirasi</button>
+                    <div class="content">
+                        <a href="">a</a>
+                        <a href="">b</a>
+                        <a href="">c</a>
+                    </div>
+            </div>
+            
+            <button>histori</button>
+            <button>setting</button>
         </nav>
         <main>
             <p>bofor</p>
