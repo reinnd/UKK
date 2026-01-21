@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f1f5f9; display: flex; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar { width: 260px; background-color: #1e293b; padding: 20px; border-right: 1px solid #334155; }
+        .sidebar h2 { color: #38bdf8; margin-bottom: 30px; font-size: 1.5rem; }
+        .nav-item { padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-bottom: 5px; list-style: none; }
+        .nav-item:hover, .active { background-color: #334155; color: #38bdf8; }
+
+        /* Main Content */
+        .main-content { flex: 1; padding: 30px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+
+        /* Stats Cards */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .card { background-color: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; }
+        .card h3 { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; }
+        .card p { font-size: 1.8rem; font-weight: bold; margin-top: 10px; color: #38bdf8; }
+
+        /* Table Section */
+        .table-container { margin-top: 30px; background: #1e293b; border-radius: 12px; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; color: #94a3b8; padding: 12px; border-bottom: 1px solid #334155; }
+        td { padding: 12px; border-bottom: 1px solid #0f172a; font-size: 0.9rem; }
+        .status { padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; }
+        .status-pending { background: #334155; color: #38bdf8; }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            .sidebar { display: none; } /* Nanti bisa dibuat hamburger menu */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>AspirasiKita</h2>
+        <ul>
+            <li class="nav-item active">Dashboard</li>
+            <li class="nav-item">Semua Aspirasi</li>
+            <li class="nav-item">Kategori</li>
+            <li class="nav-item">Pengaturan</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Overview Dashboard</h1>
+            <span>Admin Mode</span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="card">
+                <h3>Total Aspirasi</h3>
+                <p>1,284</p>
+            </div>
+            <div class="card">
+                <h3>Belum Diproses</h3>
+                <p>42</p>
+            </div>
+            <div class="card">
+                <h3>Selesai</h3>
+                <p>1,100</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h3>Aspirasi Terbaru</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Topik</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Budi Santoso</td>
+                        <td>Perbaikan Jalan Lingkungan</td>
+                        <td><span class="status status-pending">Proses</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ani Wijaya</td>
+                        <td>Fasilitas Lampu Taman</td>
+                        <td><span class="status status-pending">Proses</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
