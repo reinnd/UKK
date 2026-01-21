@@ -12,11 +12,17 @@
 </head>
 <body>
     <header>
-        <h1>Top Text</h1>
+        <h1>aspirasi</h1>
+        
+    </header>
+    <div class="container">
         <nav class="sidebar">
             <p>Something</p>
         </nav>
-    </header>
+        <main>
+            <p>bofor</p>
+        </main>
+    </div>
     
     <footer>
         <h6>Bottom Text</h6>
