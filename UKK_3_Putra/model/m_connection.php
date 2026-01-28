@@ -16,15 +16,15 @@ class m_connection{
         );
 
         if(!$this->conn){
-            die("error:" . mysqli_connect_error());
+            echo("error:" . mysqli_connect_error());
         }
         else{
-            echo "yay";
+            //echo "yay";
+            return $this->conn;
         }
     }
 }
 
-$test = new m_connection();
 
 
 ?>
