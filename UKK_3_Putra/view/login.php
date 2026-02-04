@@ -1,4 +1,8 @@
-<?php ?>
+<?php 
+
+include("../controller/c_aspirasi.php");
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

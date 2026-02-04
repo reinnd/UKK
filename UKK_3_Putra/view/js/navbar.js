@@ -1,7 +1,7 @@
-const navbar = document.getElementById("sideNav");
+const navbar = document.querySelector("nav");
 
 function openNav(){
-  navbar.classList.add("");
+  navbar.classList.add("sidebar-show");
 }
 function closeNav(){
   navbar.classList.remove("");

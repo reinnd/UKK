@@ -6,28 +6,7 @@
 }
 
 body{
-    font-size: 20px;
-}
-
-/* header feature */
-header{
-    display: flex;
-    border: 2px black solid;
-    background-color: #F6F4EB;
-    width: 100%;
-    z-index: 2;
-    padding: 0.5em;
-}
-
-header div.tribar{
-  background-color: #222;
-  width: 1.4em;
-  height:0.15em;
-  margin: 6px 0;
-}
-
-header h1{
-  padding: 0 0.5em;
+  font-size: 20px;
 }
 
 /* footer feature */
@@ -38,85 +17,39 @@ footer{
 
 /* main page */
 div.container{
-    display: flex;
-    flex-direction: row;
-    height: 100em;
+    display:flex;
+    align-items: flex-start;
 }
 
 main{
     flex-grow: 1;
-    /*border: 2px solid yellow;*/
-}
-
-nav.sidebar{
-    width: 20%;
-    border: solid rgb(153, 4, 4) 2px;
-}
-
-nav.sidebar button{
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin: 1em 0 0 0;
-    padding: 0.6em 0.8em;
-    font-size: 1rem;
-}
-
-/* focus */
-nav.sidebar button:hover{
-    border: yellowgreen 1px dotted;
-}
-
-/* dropdown */
-div.dropdown{
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-div.dropdown button{
-    cursor: not-allowed;
-
-}
-
-div.content{
-    display: none;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-div.content a{
-    color: black;
-    padding: 0.6em 0.8em;
-    text-decoration: none;
-    display: block;
-}
-
-div.dropdown:hover div.content{
-    display: block;
-    z-index: 1;
+    /* border: 2px solid yellow;*/
+    height: 200em;
 }
 
 /* tabel */
 .table-flow{
-  overflow-x: hidden;
-  width:96vw;
+  box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.24) inset;
   overflow-x: scroll;
-  margin-left:2vw ;
 }
 
 table{
+  margin: 10px;
   border-collapse: collapse;
 }
 
 th, td{
-  border: 1px solid black;
-  padding: 0.5em 0.3em;
+  /* border: 1px solid black; */
+  padding: 0.3em 0.8em;
 }
 
 th{
-  background-color: #fff;
+  background-color: #fbfbfb;
+  border-bottom:1px solid #424242;
+}
+
+.table-number{
+  text-align: center;
 }
 
 tr:nth-child(even){
@@ -125,11 +58,4 @@ tr:nth-child(even){
 
 tr:nth-child(odd){
   background-color:#fbfbfb ;
-}
-
-/* resolusi ponsel */
-@media screen and (max-width:800px){
-  nav.sidebar{
-    display:none;
-  }
 }

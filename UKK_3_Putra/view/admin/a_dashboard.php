@@ -11,11 +11,12 @@ include "../../controller/c_aspirasi.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/style.css?v=2.4">
+    <link rel="stylesheet" href="../style/style.css?v=2.5">
+    <link rel="stylesheet" href="../style/header.css?v=1">
 </head>
 <body>
     <header>
-        <div class="tribar-container" id="tribar-container" onclick="">
+        <div class="tribar-container" id="tribar-container" onclick="openNav()">
           <div class="tribar"></div>
           <div class="tribar"></div>
           <div class="tribar"></div>
@@ -24,7 +25,7 @@ include "../../controller/c_aspirasi.php";
         <div class="profile">O</div>
     </header>
     <div class="container">
-        <nav class="sidebar">
+        <nav class="sidebar" id="sideNav">
             <p>Something</p>
             <button>dashboard</button>
             <div class="dropdown">
@@ -59,7 +60,7 @@ include "../../controller/c_aspirasi.php";
                 foreach ($data as $result){
                 ?>
                 <tr>
-                  <td><?= $no++ ?></td>
+                  <td class="table-number"><?= $no++ ?></td>
                   <td><?= $result->judul ?></td>
                   <td><?= $result->username ?></td>
                   <td><?= $result->isi_kategori ?></td>
@@ -79,6 +80,9 @@ include "../../controller/c_aspirasi.php";
         <h6>Bottom Text</h6>
     </footer>
     
+
+    <script src="../js/navbar.js"></script>
+
 </body>
 </html>
 

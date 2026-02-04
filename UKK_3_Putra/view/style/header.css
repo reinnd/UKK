@@ -1,21 +1,91 @@
-*{
-    font-family: 'arial';
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
+/* header feature */
+header{
+    display: flex;
+    /* border: 2px black solid; */
+    box-shadow: 2px -2px 15px -2px rgba(0,0,0,0.24);
+    background-color: #F6F4EB;
+    width: 100%;
+    z-index: 2;
+    padding: 0.2em 0.5em;
+    position: sticky;
+    top: 0;
 }
 
+header div.tribar{
+  background-color: #222;
+  width: 1.4em;
+  height:0.15em;
+  margin: 6px 0;
+}
+
+header h1{
+  padding: 0 0.5em;
+}
+
+/* navbar */
 nav.sidebar{
-    width: 20%;
-    border: solid rgb(153, 4, 4) 2px;
+    position: sticky;
+    top: 2.8em;
+    padding: 0 1em;
+    /* border: solid rgb(153, 4, 4) 2px; */
+    max-width: 200px;
+    height: 100vh;
+    background-color: #F6F4EB;
 }
 
 nav.sidebar button{
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin: 1em 0 0 0;
     padding: 0.6em 0.8em;
-    font-size: 1rem;
+    font-size: 1em;
+    border: none;
 }
+
+/* focus */
+nav.sidebar button:hover{
+    border: yellowgreen 1px dotted;
+    cursor: pointer;
+}
+
+/* dropdown */
+div.dropdown{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+div.dropdown button{
+    cursor: not-allowed;
+
+}
+
+div.content{
+    display: none;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+div.content a{
+    color: black;
+    padding: 0.6em 0.8em;
+    text-decoration: none;
+    display: block;
+}
+
+div.dropdown:hover div.content{
+    display: block;
+    z-index: 1;
+}
+
+/* resolusi ponsel */
+@media screen and (max-width:800px){
+    nav.sidebar{
+      display:none;
+    }
+
+    nav.sidebar-show{
+        display: block;
+    }
+  }
