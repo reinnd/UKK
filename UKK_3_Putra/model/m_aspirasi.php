@@ -1,6 +1,6 @@
 <?php 
 
-include "m_connection.php";
+include_once "m_connection.php";
 
 class m_aspirasi{
   
@@ -13,7 +13,7 @@ class m_aspirasi{
             FROM aspirasi
             INNER JOIN kategori ON aspirasi.id_kategori = kategori.id_kategori
             INNER JOIN siswa ON aspirasi.id_siswa = siswa.id_siswa
-            INNER JOIN feedback ON aspirasi.id_feedback = feedback.id_feedback";
+            LEFT JOIN feedback ON aspirasi.id_feedback = feedback.id_feedback";
     $query = mysqli_query($conn->conn, $sql);
     
     if ($query->num_rows > 0) {
@@ -25,6 +25,33 @@ class m_aspirasi{
         echo "ga ada data";
     }
   }
+
+    // function get_data_by_id($id) {
+      
+    // }
+    
+    function add_data($id, $judul_aspirasi, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback){
+      
+      $conn = new m_connection();
+      $sql = " INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, status, id_kategori, id_feedback) VALUES ('$id','$judul_aspirasi','$id_siswa','$isi_aspirasi','$status','$id_kategori','$id_feedback') ";
+      $query = mysqli_query($conn->conn, $sql);
+      
+      if($query){
+        echo "<script>alert('data berhasil ditambah');  window.location='../view/admin/a_dashboard.php';</script>";
+      } else{
+        echo "<script>alert('data gagal ditambah');  window.location='../view/admin/a_form.php';</script>";
+      }
+      
+    }
+
+  //   function feedback(){
+  //     $conn = new m_connection();
+  //     $sql = " ";
+  //     $query = mysqli_query($conn->conn, $sql);
+  //   }
+
+  //   function delete_data(){}
+  
 }
 
 ?>

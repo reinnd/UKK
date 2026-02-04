@@ -2,6 +2,7 @@
 
 include "../../controller/c_aspirasi.php";
 
+
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +11,15 @@ include "../../controller/c_aspirasi.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="astd.css?v=1.5">
+    <link rel="stylesheet" href="../style/style.css?v=2.4">
 </head>
 <body>
     <header>
-        <div class="tribar-container"></div>
+        <div class="tribar-container" id="tribar-container" onclick="">
+          <div class="tribar"></div>
+          <div class="tribar"></div>
+          <div class="tribar"></div>
+        </div>
         <h1>aspirasi</h1>
         <div class="profile">O</div>
     </header>
@@ -25,9 +30,9 @@ include "../../controller/c_aspirasi.php";
             <div class="dropdown">
                 <button>aspirasi</button>
                     <div class="content">
-                        <a href="">tambah aspirasi</a>
-                        <a href="">edit aspirssi</a>
-                        <a href="">bungkam</a>
+                        <a href="#">tambah aspirasi</a>
+                        <a href="#">balas aspirasi</a>
+                        <a href="#">bungkam</a>
                     </div>
             </div>
             
@@ -36,6 +41,7 @@ include "../../controller/c_aspirasi.php";
         </nav>
         <main>
             <p>semua aspirasi</p>
+            <div class="table-flow">
             <table>
               <thead>
                 <tr>
@@ -65,12 +71,14 @@ include "../../controller/c_aspirasi.php";
                 ?>
               </tbody>
             </table>
+            </div>
         </main>
     </div>
     
     <footer>
         <h6>Bottom Text</h6>
     </footer>
+    
 </body>
 </html>
 
