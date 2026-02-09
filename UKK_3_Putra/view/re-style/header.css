@@ -1,0 +1,118 @@
+/* header prop */
+header{
+    width: 100%;
+    background-color: var(--secondary-color-base);
+}
+.headbar-container{
+    height: var(--header-height-base);
+    width: 100%;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 0 20px;
+}
+
+.headbar-container h1{
+    font-size: 2em;
+}
+
+.headbar-container section:nth-child(1){
+    border: 1px red solid;
+    min-width: 350px;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.headbar-container section:nth-child(2){
+    border: 1px rgb(0, 255, 0) solid;
+    flex: 1;
+}
+
+.headbar-container section:nth-child(3){
+    border: 1px rgb(0, 119, 255) solid;
+    min-width: 200px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+}
+.hamburger{
+    border: 1px solid cyan;
+    height: 45px;
+    width: 45px;
+    overflow: hidden;
+}
+
+.profile-holder{
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+}
+
+img{
+    aspect-ratio: 32 / 32;
+}
+
+/* sidenav prop */
+nav{
+    width: 200px;
+    border: 1px solid chartreuse;
+    height: calc(100vh - 60px);
+    padding-left: 16px;
+    top: var(--header-height-base);
+    left: 0;
+    transition: 0.3s ease-in-out;
+    position: fixed;
+}
+
+nav.sidebar-toggle{
+    left: -200px;
+}
+
+.nav-button{
+    margin-top: 1rem;
+    padding: 0.6em 0;
+    min-width: var(--button-width-base);
+    border-radius: 8px;
+    grid-template-columns: 30px auto 22px;
+    text-align: start;
+    font-weight: 500;
+    font-size: 1em;
+    border: transparent;
+    background-color: aquamarine;
+}
+
+.nav-button div:nth-child(3){
+    padding-left: 5px;
+}
+
+.dropdown-active{
+    border-radius: 8px 8px 0 0;
+    border-bottom:1px solid rgb(36, 36, 36) ;
+}
+
+.arrow-down{
+    translate: rotate(90);
+}
+
+.nav-button:hover{
+    background-color: #e6b5b5;
+    cursor: pointer;
+}
+
+.drop-content{
+    flex-direction: column;
+    background-color: aquamarine;
+    padding-left: 1em ;
+    min-width: auto ;
+    display: none;
+    max-width:var(--button-width-base);
+    border-radius: 0 0 8px 8px;
+}
+
+.drop-content a{
+    padding: 0.5em 0;
+}
+
+

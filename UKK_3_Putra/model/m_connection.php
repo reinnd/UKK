@@ -20,7 +20,7 @@ class m_connection{
         }
         else{
             //echo "yay";
-            return $this->conn;
+            
         }
     }
 }

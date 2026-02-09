@@ -1,0 +1,13 @@
+/* height and width */
+html{
+    --header-height-base: 50px;
+    --navbar-width-base: 200px;
+    --button-width-base: 160px;
+
+}
+
+/* colors */
+html{
+    --primary-color-base:#f2efff;
+    --secondary-color-base:#f3f2f0;
+}

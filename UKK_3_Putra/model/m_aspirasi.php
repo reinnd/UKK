@@ -33,7 +33,7 @@ class m_aspirasi{
     function add_data($id, $judul_aspirasi, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback){
       
       $conn = new m_connection();
-      $sql = " INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, status, id_kategori, id_feedback) VALUES ('$id','$judul_aspirasi','$id_siswa','$isi_aspirasi','$status','$id_kategori','$id_feedback') ";
+      $sql = " INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, `status`, id_kategori, id_feedback) VALUES ('$id','$judul_aspirasi','$id_siswa','$isi_aspirasi','$status','$id_kategori','$id_feedback') ";
       $query = mysqli_query($conn->conn, $sql);
       
       if($query){
@@ -50,7 +50,14 @@ class m_aspirasi{
   //     $query = mysqli_query($conn->conn, $sql);
   //   }
 
-  //   function delete_data(){}
+   function delete_data($id_aspirasi){
+     $conn = new m_connection();
+     $sql = "DELETE * FROM aspirasi WHERE id_aspirasi = $id_aspirasi";
+     $query = mysqli_query($conn->conn, $sql);
+     if($query){
+       echo "<script>alert('data dihapus');  window.location.href='../view/admin/a_form.php';</script>";
+     }
+   }
   
 }
 
