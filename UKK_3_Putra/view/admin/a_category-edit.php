@@ -1,7 +1,7 @@
 <?php
 
     //head
-    include("a_header.php");
+    include __DIR__ . "/a_header.php";
 ?>
     <title>Edit Kategori</title>
 </head>
@@ -21,5 +21,5 @@
             </section>
 <!-- footer & closing -->
 <?php
-    include("_footer.php");
+    include("a_footer.php");
 ?>

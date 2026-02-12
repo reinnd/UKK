@@ -28,7 +28,7 @@
                 <td><?= $result->isi_kategori ?></td>
                 <td>idk</td>
                 <td>
-                    <button><a href="../../controller/c_category.php?action=edit&id=<?= $result->id_kategori ?>">&#9998;</a></button>
+                    <button><a href="../../controller/c_category.php?action=edit&id_kategori=<?= $result->id_kategori ?>">&#9998;</a></button>
                     <button>&#10006;</button>
                 </td>
             </tr>

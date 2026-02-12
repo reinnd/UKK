@@ -11,6 +11,12 @@
     justify-content: space-between;
 }
 
+.flex-center{
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
 .grid{
     display: grid;
     justify-content: space-between;
@@ -29,6 +35,10 @@
 
 .overflow-x{
   overflow-x: hidden;
+}
+
+a{
+  text-decoration: none;
 }
 
 body{

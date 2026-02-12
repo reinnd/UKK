@@ -1,43 +1,17 @@
-<?php 
-  include "../../controller/c_category.php";
-?>
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Aspirasi</title>
-    <link rel="stylesheet" href="../style/style.css?v=2.5">
-    <link rel="stylesheet" href="../style/header.css?v=1">
+    //head
+    $active_page = 'add-aspiration';
+    include "a_header.php";
+?>
+    <title>Dashboard</title>
 </head>
 <body>
-    <header>
-        <div class="tribar-container" id="tribar-container" onclick="">
-          <div class="tribar"></div>
-          <div class="tribar"></div>
-          <div class="tribar"></div>
-        </div>
-        <h1>aspirasi</h1>
-        <div class="profile">O</div>
-    </header>
-    <div class="container">
-        <nav class="sidebar">
-            <p>Something</p>
-            <button>dashboard</button>
-            <div class="dropdown">
-                <button>aspirasi</button>
-                    <div class="content">
-                        <a href="#">tambah aspirasi</a>
-                        <a href="#">balas aspirasi</a>
-                        <a href="#">bungkam</a>
-                    </div>
-            </div>
-            
-            <button>histori</button>
-            <button>setting</button>
-        </nav>
-        <main>
+    <!-- header & navigation -->
+<?php
+    include "a_navbar.php";
+?>
+<!-- main start here -->
           <div class="wrapper flex-input-container">
         <form action="../../controller/c_aspirasi.php?action=add" method="post">
         
@@ -79,7 +53,7 @@
                 <button type="submit">kirim</button>
             </form>
             </div>
-        </main>
-    </div>
-</body>
-</html>
+        <!-- footer & closing -->
+<?php
+    include "a_footer.php";
+?>

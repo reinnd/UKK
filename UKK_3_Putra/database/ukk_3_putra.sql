@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 27 Jan 2026 pada 05.46
--- Versi server: 10.4.34-MariaDB
--- Versi PHP: 8.5.1
+-- Host: localhost:3306
+-- Generation Time: Feb 12, 2026 at 07:58 AM
+-- Server version: 8.4.3
+-- PHP Version: 8.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,204 +18,244 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Basis data: `Ukk_3_putra`
+-- Database: `ukk_3_putra`
 --
-
-CREATE DATABASE IF NOT EXISTS ukk_3_putra;
-USE ukk_3_putra;
-
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
-  `id_admin` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `id_admin` int NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `waktu_buat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
-(1, 'system', 'monohydrogenperoxyde'),
-(2, 'yana', 'nenji bigga'),
-(3, 'mas narjo', 'saianarjocuaks');
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `waktu_buat`) VALUES
+(1, 'system', 'monohydrogenperoxyde', '2026-02-12 07:51:00'),
+(2, 'yana', 'nenji bigga', '2026-02-12 07:51:00'),
+(3, 'mas narjo', 'saianarjocuaks', '2026-02-12 07:51:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aspirasi`
+-- Table structure for table `aspirasi`
 --
 
 CREATE TABLE `aspirasi` (
-  `id_aspirasi` int(11) NOT NULL,
-  `judul` varchar(20) NOT NULL,
-  `id_siswa` int(11) NOT NULL,
-  `isi_aspirasi` varchar(100) NOT NULL,
-  `status` enum('menunggu','proses','selesai') NOT NULL,
-  `id_kategori` int(11) NOT NULL,
-  `id_feedback` int(11) NOT NULL
+  `id_aspirasi` int NOT NULL,
+  `judul` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_siswa` int NOT NULL,
+  `isi_aspirasi` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('menunggu','proses','selesai') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_kategori` int NOT NULL,
+  `id_feedback` int NOT NULL,
+  `waktu_upload` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aspirasi`
+-- Dumping data for table `aspirasi`
 --
 
-INSERT INTO `aspirasi` (`id_aspirasi`, `judul`, `id_siswa`, `isi_aspirasi`, `status`, `id_kategori`, `id_feedback`) VALUES
-(1, 'kipas rusak', 1, 'kipas rusak banh', 'menunggu', 1, 1),
-(2, 'kipas rusak', 2, 'kipas rusak cuyh', 'menunggu', 1, 1);
+INSERT INTO `aspirasi` (`id_aspirasi`, `judul`, `id_siswa`, `isi_aspirasi`, `status`, `id_kategori`, `id_feedback`, `waktu_upload`) VALUES
+(1, 'kipas rusak', 1, 'kipas rusak banh', 'menunggu', 1, 1, '2026-02-12 06:53:05'),
+(2, 'kipas rusak', 2, 'kipas rusak cuyh', 'menunggu', 1, 1, '2026-02-12 06:53:05'),
+(3, 'wifi lemot', 1, 'ini wifi lemot sangat. 1MBps pun tak dapat', 'proses', 1, 1, '2026-02-12 06:53:05');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `feedback`
+-- Table structure for table `feedback`
 --
 
 CREATE TABLE `feedback` (
-  `id_feedback` int(11) NOT NULL,
-  `isi_feedback` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `id_admin` int(11) NOT NULL
+  `id_feedback` int NOT NULL,
+  `isi_feedback` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `id_admin` int NOT NULL,
+  `waktu_upload` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `feedback`
+-- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id_feedback`, `isi_feedback`, `id_admin`) VALUES
-(1, 'belum ada balasan', 1);
+INSERT INTO `feedback` (`id_feedback`, `isi_feedback`, `id_admin`, `waktu_upload`) VALUES
+(1, 'belum ada balasan', 1, '2026-02-12 07:50:22');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
-  `id_kategori` int(11) NOT NULL,
-  `isi_kategori` varchar(30) NOT NULL
+  `id_kategori` int NOT NULL,
+  `isi_kategori` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `waktu_upload` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `isi_kategori`) VALUES
-(1, 'fasilitas kelas'),
-(2, 'fasilitas sekolah');
+INSERT INTO `kategori` (`id_kategori`, `isi_kategori`, `waktu_upload`) VALUES
+(1, 'fasilitas kelas', '2026-02-12 07:47:20'),
+(2, 'fasilitas sekolah', '2026-02-12 07:47:20'),
+(3, 'gedung', '2026-02-12 07:47:20'),
+(4, 'aldar', '2026-02-12 07:47:20'),
+(5, 'aldar', '2026-02-12 07:47:20'),
+(6, 'nkj', '2026-02-12 07:47:20'),
+(7, 'nkj', '2026-02-12 07:47:20'),
+(8, '', '2026-02-12 07:47:20'),
+(9, 'fewwfe', '2026-02-12 07:47:20'),
+(10, 'fewwfe', '2026-02-12 07:47:20'),
+(11, 'tikus bob', '2026-02-12 07:47:20'),
+(12, 'asgan', '2026-02-12 08:14:18');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siswa`
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `id_log` int NOT NULL,
+  `id_actor` int NOT NULL,
+  `role` enum('admin','siswa') NOT NULL,
+  `aksi` text NOT NULL,
+  `waktu_upload` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `siswa`
 --
 
 CREATE TABLE `siswa` (
-  `id_siswa` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `kelas` varchar(10) NOT NULL,
-  `nis` int(10) NOT NULL
+  `id_siswa` int NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nis` int NOT NULL,
+  `waktu_buat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siswa`
+-- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `username`, `password`, `kelas`, `nis`) VALUES
-(1, 'jhon', 'jhonreal', 'XXI RPL 5', 1020304050),
-(2, 'rusdi', 'atminjahat', 'XIV RPL 1', 1234567890);
+INSERT INTO `siswa` (`id_siswa`, `username`, `password`, `kelas`, `nis`, `waktu_buat`) VALUES
+(1, 'jhon', 'jhonreal', 'XXI RPL 5', 1020304050, '2026-01-10 02:49:00'),
+(2, 'rusdi', 'atminjahat', 'XIV RPL 1', 1234567890, '2026-02-12 07:49:00');
 
 --
--- Indeks untuk tabel yang dibuang
+-- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `aspirasi`
+-- Indexes for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
   ADD PRIMARY KEY (`id_aspirasi`),
   ADD KEY `kategori-aspirasi_bridge` (`id_kategori`),
-  ADD KEY `siswa-aspirasi_bridge` (`id_siswa`);
+  ADD KEY `siswa-aspirasi_bridge` (`id_siswa`),
+  ADD KEY `feedback-aspirasi_bridge` (`id_feedback`);
 
 --
--- Indeks untuk tabel `feedback`
+-- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id_feedback`),
   ADD KEY `admin-feedback_bridge` (`id_admin`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `siswa`
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id_log`);
+
+--
+-- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id_siswa`),
   ADD UNIQUE KEY `nis` (`nis`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_admin` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `aspirasi`
+-- AUTO_INCREMENT for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
-  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_aspirasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `feedback`
+-- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id_feedback` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_feedback` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `siswa`
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id_log` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_siswa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `aspirasi`
+-- Constraints for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
-  ADD CONSTRAINT `kategori-aspirasi_bridge` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE NO ACTION,
-  ADD CONSTRAINT `siswa-aspirasi_bridge` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE NO ACTION;
+  ADD CONSTRAINT `feedback-aspirasi_bridge` FOREIGN KEY (`id_feedback`) REFERENCES `feedback` (`id_feedback`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `kategori-aspirasi_bridge` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `siswa-aspirasi_bridge` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `feedback`
+-- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `admin-feedback_bridge` FOREIGN KEY (`id_admin`) REFERENCES `feedback` (`id_feedback`);

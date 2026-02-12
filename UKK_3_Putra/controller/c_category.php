@@ -10,7 +10,7 @@
 
         if($_GET['action'] == 'edit'){
 
-          $id_kategori = $_GET['id'];
+          $id_kategori = $_GET['id_kategori'];
 
           $data = $category->get_data_by_id($id_kategori);
 
