@@ -2,7 +2,7 @@
     include "../../controller/c_category.php";
     include "a_header.php";
 ?>
-    <title>Kategori</title>
+    <title>Semua Kategori</title>
 </head>
 <body>
 <?php 
@@ -28,7 +28,7 @@
                 <td><?= $result->isi_kategori ?></td>
                 <td>idk</td>
                 <td>
-                    <button>&#9998;</button>
+                    <button><a href="../../controller/c_category.php?action=edit&id=<?= $result->id_kategori ?>">&#9998;</a></button>
                     <button>&#10006;</button>
                 </td>
             </tr>

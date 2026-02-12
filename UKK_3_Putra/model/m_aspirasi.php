@@ -30,10 +30,11 @@ class m_aspirasi{
       
     // }
     
-    function add_data($id, $judul_aspirasi, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback){
+    function add_data( $judul, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback){
       
       $conn = new m_connection();
-      $sql = " INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, `status`, id_kategori, id_feedback) VALUES ('$id','$judul_aspirasi','$id_siswa','$isi_aspirasi','$status','$id_kategori','$id_feedback') ";
+      $sql = "INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, `status`, id_kategori, id_feedback, waktu_upload) 
+              VALUES (NULL,'$judul', $id_siswa, '$isi_aspirasi', '$status', $id_kategori, $id_feedback, NOW() )";
       $query = mysqli_query($conn->conn, $sql);
       
       if($query){
@@ -43,12 +44,6 @@ class m_aspirasi{
       }
       
     }
-
-  //   function feedback(){
-  //     $conn = new m_connection();
-  //     $sql = " ";
-  //     $query = mysqli_query($conn->conn, $sql);
-  //   }
 
    function delete_data($id_aspirasi){
      $conn = new m_connection();

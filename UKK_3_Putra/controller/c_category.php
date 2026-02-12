@@ -8,17 +8,27 @@
 
       if($_GET['action'] != "delete" ) {
 
-        $_SERVER["REQUEST_METHOD"] = $_POST;
+        if($_GET['action'] == 'edit'){
 
-        $id_kategori = $_POST['id_kategori'];
-        $isi_kategori = $_POST['isi_kategori'];
+          $id_kategori = $_GET['id'];
 
-        if($_GET['action'] == "add" ) {
-          $category->add_data($isi_kategori);
+          $data = $category->get_data_by_id($id_kategori);
 
-        } elseif ($_GET['action'] == "update" ){
-          $category->update_data($id_kategori, $isi_kategori);
+          include_once '../view/admin/a_category-edit.php';
+        } else{
 
+            $_SERVER["REQUEST_METHOD"] = $_POST;
+
+          $id_kategori = $_POST['id_kategori'];
+          $isi_kategori = $_POST['isi_kategori'];
+
+          if($_GET['action'] == "add" ) {
+            $category->add_data($isi_kategori);
+
+          } elseif ($_GET['action'] == "update" ){
+            $category->update_data($id_kategori, $isi_kategori);
+
+          }
         }
 
       } else {

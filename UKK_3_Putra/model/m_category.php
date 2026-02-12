@@ -19,11 +19,19 @@
       }
     }
 
+    function get_data_by_id($id_kategori){
+      $conn = new m_connection();
+
+      $sql = " SELECT * FROM kategori WHERE id_kategori = $id_kategori ";
+      $query = mysqli_query($conn->conn, $sql);
+    }
+
     function add_data($isi_kategori ){
       $conn = new m_connection();
       
       //value id null, karena auto increment
-      $sql = "INSERT INTO kategori (id_kategori, isi_kategori) VALUES( NULL, '$isi_kategori')";
+      $sql = "INSERT INTO kategori (id_kategori, isi_kategori, waktu_upload) 
+              VALUES (NULL, '$isi_kategori', NOW())";
       $query = mysqli_query($conn->conn, $sql);
 
       if($query){
