@@ -1,5 +1,5 @@
 <?php
-    include "../../controller/c_category.php";
+    include_once "../../controller/c_category.php";
     //head
     $active_page = 'add-aspiration';
     include "a_header.php";

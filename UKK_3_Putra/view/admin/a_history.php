@@ -1,10 +1,10 @@
 <?php
-    // include_once "";
+
     //head
-    $active_page = 'feedback';
+    $active_page = 'history';
     include "a_header.php";
 ?>
-    <title>Feedback</title>
+    <title>Dashboard</title>
 </head>
 <body>
     <!-- header & navigation -->
@@ -12,12 +12,9 @@
     include "a_navbar.php";
 ?>
 <!-- main start here -->
-            
-    <section>
-        <form action="">
-            
-        </form>
-    </section>
+            <section class="container grid grid-template-default">
+                belum ada riwayat
+            </section>
 <!-- footer & closing -->
 <?php
     include "a_footer.php";

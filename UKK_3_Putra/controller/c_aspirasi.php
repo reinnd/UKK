@@ -28,7 +28,7 @@ try{
 
       }
     } else{
-      //delete data
+      
     }
   } else{
     $data = $aspirasi->get_data();

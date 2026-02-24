@@ -17,19 +17,19 @@ header{
 }
 
 .headbar-container section:nth-child(1){
-    border: 1px red solid;
+    border: transparent;
     min-width: 350px;
-    justify-content: space-between;
-    gap: 1em;
+    justify-content: start;
+    gap: 3em;
 }
 
 .headbar-container section:nth-child(2){
-    border: 1px rgb(0, 255, 0) solid;
+    border: transparent;
     flex: 1;
 }
 
 .headbar-container section:nth-child(3){
-    border: 1px rgb(0, 119, 255) solid;
+    border: transparent;
     min-width: 200px;
     justify-content: flex-end;
     align-items: center;

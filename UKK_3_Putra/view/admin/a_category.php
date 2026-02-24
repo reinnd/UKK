@@ -20,7 +20,7 @@
             </form>
         </div>
 
-        <div class="container">
+        <!-- <div class="container">
             <p>Edit</p>
             <form action="../../controller/c_category.php?action=update" method="post">
                 <input type="number" name="id_kategori" value="<?= $id_kategori = $_GET['id_kategori']; $data->$id ?>">
@@ -28,7 +28,7 @@
                 <input type="text" name="isi_kategori" placeholder="kategori baru..">
                 <button type="submit">kirim</button>
             </form>
-        </div>
+        </div> -->
 
         <div class="container">
             <table>
@@ -48,11 +48,11 @@
                     <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $result->isi_kategori ?></td>
-                        <td>idk</td>
+                        <td>belum ada data</td>
                         <td>
                             <button><a href="../../controller/c_category.php?action=edit&id_kategori=<?= $result->id_kategori ?>">&#9998;</a></button>
-                            <button><a href="?action=id_kategori=<?= $result->id_kategori ?>">&#9998;</a></button>
-                            <button>&#10006;</button>
+                            <!-- <button><a href="?action=id_kategori=<?= $result->id_kategori ?>">&#9998;</a></button> -->
+                            <button><a href="../../controller/c_category.php?action=delete&id_kategori=<?= $result->id_kategori ?>" onclick="return confirm('Yakin hapus kategori ini?')">&#10006;</a></button>
                         </td>
                     </tr>
                     <?php

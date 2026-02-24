@@ -42,7 +42,7 @@ class m_aspirasi{
       $query = mysqli_query($conn->conn, $sql);
       
       if($query){
-        echo "<script>alert('data berhasil ditambah');  window.location='../view/admin/a_aspirasi.php';</script>";
+        echo "<script>alert('data berhasil ditambah');  window.location='../view/user/u_aspirasi.php';</script>";
       } else{
         echo "<script>alert('data gagal ditambah');  window.location='../view/admin/a_form.php';</script>";
       }

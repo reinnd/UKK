@@ -4,7 +4,7 @@
                 <div class="hamburger flex flex-center" onclick="toggleNav()">
                 ☰
                 </div>
-                <h1>placeholder</h1>
+                <h1>Aspirasi</h1>
             </section>
             <section>
                 
@@ -51,15 +51,13 @@
                 </button>
             </a>
             
-            <button class="nav-button grid">
-                <div>ico</div>
-                <p>Riwayat</p>
-                <div></div>
-            </button>
-            <button class="nav-button grid">
-                <div>ico</div>
-                <p>Pengaturan</p>
-                <div></div>
-            </button>
+            <a href="a_history.php">
+                <button class="nav-button grid <?= ($active_page == 'history') ? 'nav-button-active' : '' ; ?>">
+                    <div>ico</div>
+                    <p>Riwayat</p>
+                    <div></div>
+                </button>
+            </a>
+            
         </nav>
         <main>

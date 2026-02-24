@@ -35,7 +35,7 @@
       $query = mysqli_query($conn->conn, $sql);
 
       if($query){
-        echo "<script>alert('coeg'); windows.location='../view/admin/a_form.php'</script>";
+        echo "<script>alert('Data berhasil ditambah'); window.location='../view/admin/a_category.php'</script>";
       } else {
         echo "false";
       }
@@ -47,10 +47,10 @@
       $sql = "DELETE FROM kategori WHERE id_kategori = $id_kategori";
       $query = mysqli_query($conn->conn, $sql);
 
-      if ($query) {
-        
+      if($query){
+        echo "<script>alert('Data berhasil dihapus'); window.location='../view/admin/a_category.php'</script>";
       } else {
-        
+        echo "false";
       }
     }
 

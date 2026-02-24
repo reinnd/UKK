@@ -32,6 +32,7 @@
         }
 
       } else {
+        $id_kategori = $_GET['id_kategori']; 
         $category->delete_data($id_kategori);
       }
     } else {
