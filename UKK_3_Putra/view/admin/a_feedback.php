@@ -1,50 +1,24 @@
 <?php
-
-    include "../../controller/c_aspirasi.php";
-
+    include_once "";
+    //head
+    $active_page = 'feedback';
+    include "a_header.php";
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>no</th>
-                <th>tentang</th>
-                <th>dari</th>
-                <th>kategori</th>
-                
-                <th>balasan</th>
-            </tr>
-        </thead>
+    <!-- header & navigation -->
+<?php
+    include "a_navbar.php";
+?>
+<!-- main start here -->
+            
+    <section>
+        <form action="">
 
-        <tbody>
-            <tr>
-                <?php 
-                $no = 1;
-                foreach ($data as $result){
-                ?>
-                <tr>
-                  <td><?= $no++ ?></td>
-                  <td><?= $result->judul ?></td>
-                  <td><?= $result->username ?></td>
-                  <td><?= $result->isi_kategori ?></td>
-                  <td><?= $result->isi_aspirasi ?></td>
-                  <td><?= $result->isi_feedback ?></td>
-                  <td><button>balas</button></td>
-                </tr>
-                <?php 
-                }
-                ?>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+        </form>
+    </section>
+<!-- footer & closing -->
+<?php
+    include "a_footer.php";
+?>

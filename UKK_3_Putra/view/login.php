@@ -1,6 +1,6 @@
 <?php 
 
-include("../controller/c_aspirasi.php");
+// include_once("../controller/c_user.php");
 
 ?>
 
@@ -25,9 +25,9 @@ include("../controller/c_aspirasi.php");
                         <label for=""></label>
                         <input type="password">
                     </fieldset>
-                    <button class="login" type="submit">login</button>
-                <p class="reg">blahhhhhhhh <a href="">Register</a> blahhh!</p>
-                <span><button>regist</button></span>
+                    <button class="login" type="submit">log-in</button>
+                <p class="reg">blahhhhhhhh <a href="register.php">Register</a> blahhh!</p>
+
                 </form>
             </div>
         </div>

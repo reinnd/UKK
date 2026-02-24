@@ -20,7 +20,26 @@
 .grid{
     display: grid;
     justify-content: space-between;
-    align-content: space-between;
+    align-content: space-between; 
+    
+}
+
+/* dashboard grid template */
+.selesai-aspirasi{ grid-area: selesai;}
+.diproses-aspirasi{ grid-area: diproses;}
+.menunggu-aspirasi{ grid-area: menunggu;}
+.total-aspirasi{ grid-area: total;}
+
+.grid-template-default{
+  grid-template-areas: 
+  "selesai diproses menunggu"
+  "total total total";
+}
+
+.grid-template-1600{
+  grid-template-areas: 
+  "selesai diproses"
+  "total menunggu";
 }
 
 .fixed{
@@ -65,9 +84,10 @@ main.nav-toggle{
     background-color: var(--white-800);
     min-width: 10vw;
     padding: 1.4em;
+    margin-top: 24px;
     border-radius: 16px;
     gap: 22px;
-    /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .box{
@@ -118,6 +138,15 @@ tr:nth-child(odd){
     overflow: hidden;
     padding: 1em 0em;
   }
+
+  .grid-template-default{
+    grid-template-areas: 
+  "selesai"
+  "diproses"
+  "menunggu"
+  "total";
+  }
+
   main.nav-toggle{
     margin-left: 200px;
     width: calc(100vw - 200px);

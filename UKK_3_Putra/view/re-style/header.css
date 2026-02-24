@@ -37,11 +37,13 @@ header{
 }
 
 .hamburger{
-    border: 1px solid cyan;
+    border: transparent;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     overflow: hidden;
+    font-size: 1.4em;
+    font-weight:100 ;
 }
 
 .hamburger:hover{
@@ -83,6 +85,7 @@ nav.sidebar-toggle{
     min-width: var(--button-width-base);
     border-radius: 8px;
     grid-template-columns: 30px auto 22px;
+    justify-content: start;
     text-align: start;
     font-weight: 500;
     font-size: 1em;
@@ -143,7 +146,6 @@ nav.sidebar-toggle{
   }
   .headbar-container section:nth-child(2){
     width: 60px;
-    display: ;
     overflow-x: hidden;
   }
   .headbar-container section:nth-child(3){

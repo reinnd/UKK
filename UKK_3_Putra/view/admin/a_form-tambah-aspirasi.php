@@ -1,10 +1,10 @@
 <?php
-
+    include "../../controller/c_category.php";
     //head
     $active_page = 'add-aspiration';
     include "a_header.php";
 ?>
-    <title>Dashboard</title>
+    <title>Buat Aspirasimu</title>
 </head>
 <body>
     <!-- header & navigation -->
@@ -12,48 +12,41 @@
     include "a_navbar.php";
 ?>
 <!-- main start here -->
-          <div class="wrapper flex-input-container">
-        <form action="../../controller/c_aspirasi.php?action=add" method="post">
+  <div class="container">
+    <form action="../../controller/c_aspirasi.php?action=add" method="post">
+      <div class="box">
+        <label for="jusuk">Topik</label>
+        <input type="text" name="judul" placeholder="Bla bla..">
+      </div>
+
+      <?php
+        foreach ($data as $result) {
         
-                <!-- id -->
-                <input type="number" id="id" name="id" hidden>
-              <div class="flex-wrapper">
-                <label for="judul_aspirasi">judul</label>
-                <input type="text" id="judul_aspirasi" name="judul_aspirasi">
-              </div>
+      ?>
 
-                <!-- current user by id -->
-                <input type="number" id="id_user" name="id_user" value="1" hidden>
-                
-              <div class="flex-wrapper">
-                <label for="isi_aspirasi">isi</label>
-                <input type="text" id="isi_aspirasi" name="isi_aspirasi">
-              </div>
+      <div class="box">
+        <label for="id_kategori"><?= $result->isi_kategori ?></label>
+        <input type="radio" name="id_kategori" value="<?= $result->id_kategori ?>">
+      </div>
 
-                <input type="number" name="status" id="status" hidden>
+      <?php
+        }
+      ?>
 
-                <!-- pilihan -->
-              <div class="flex-wrapper" for="kategori">
-                <label for="kategori">kategori</label>
-                <?php
-                  foreach($data as $result){
-                ?>
-              <div class="another-flex-wrapper">
-                <label>
-                  <input type="radio" id="id_kategori" name="kategori" value="<?= $result->id_kategori ?> ">
-                <?= $result->isi_kategori ?></label>
-              </div>
-                <?php 
-                  }
-                ?>
-              </div>
-
-                <input type="number" id="id_feedback" value="1" hidden>
-
-                <button type="submit">kirim</button>
-            </form>
-            </div>
-        <!-- footer & closing -->
+      <div class="box">
+        <label for="isi_aspirasi">Isi</label>
+        <textarea name="isi_aspirasi" placeholder="Bla bla.."> </textarea>
+      </div>
+      <!-- pengirim -->
+       <input type="number" name="id_siswa" value="1">
+      <!-- status -->
+       <input type="text" name="status" value="menunggu">
+      <!-- feedback -->
+       <input type="number" name="id_feedback" value="1">
+      <button type="submit">kirim</button>
+    </form>
+  </div>
+<!-- footer & closing -->
 <?php
     include "a_footer.php";
 ?>

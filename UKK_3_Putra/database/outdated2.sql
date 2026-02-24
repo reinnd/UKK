@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 24, 2026 at 02:58 PM
+-- Generation Time: Feb 12, 2026 at 07:58 AM
 -- Server version: 8.4.3
--- PHP Version: 8.3.28
+-- PHP Version: 8.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,6 @@ CREATE TABLE `admin` (
   `id_admin` int NOT NULL,
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `role` enum('admin') COLLATE utf8mb4_general_ci NOT NULL,
   `waktu_buat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,10 +38,10 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `username`, `password`, `role`, `waktu_buat`) VALUES
-(1, 'system', 'monohydrogenperoxyde', 'admin', '2026-02-12 07:51:00'),
-(2, 'yana', 'nenji bigga', 'admin', '2026-02-12 07:51:00'),
-(3, 'mas narjo', 'saianarjocuaks', 'admin', '2026-02-12 07:51:00');
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `waktu_buat`) VALUES
+(1, 'system', 'monohydrogenperoxyde', '2026-02-12 07:51:00'),
+(2, 'yana', 'nenji bigga', '2026-02-12 07:51:00'),
+(3, 'mas narjo', 'saianarjocuaks', '2026-02-12 07:51:00');
 
 -- --------------------------------------------------------
 
@@ -68,9 +67,7 @@ CREATE TABLE `aspirasi` (
 INSERT INTO `aspirasi` (`id_aspirasi`, `judul`, `id_siswa`, `isi_aspirasi`, `status`, `id_kategori`, `id_feedback`, `waktu_upload`) VALUES
 (1, 'kipas rusak', 1, 'kipas rusak banh', 'menunggu', 1, 1, '2026-02-12 06:53:05'),
 (2, 'kipas rusak', 2, 'kipas rusak cuyh', 'menunggu', 1, 1, '2026-02-12 06:53:05'),
-(3, 'wifi lemot', 1, 'ini wifi lemot sangat. 1MBps pun tak dapat', 'proses', 1, 1, '2026-02-12 06:53:05'),
-(4, 'as', 1, ' hreh', 'menunggu', 11, 1, '2026-02-24 19:15:26'),
-(5, 'as', 1, ' 4545', 'menunggu', 1, 1, '2026-02-24 19:16:29');
+(3, 'wifi lemot', 1, 'ini wifi lemot sangat. 1MBps pun tak dapat', 'proses', 1, 1, '2026-02-12 06:53:05');
 
 -- --------------------------------------------------------
 
@@ -145,10 +142,9 @@ CREATE TABLE `logs` (
 CREATE TABLE `siswa` (
   `id_siswa` int NOT NULL,
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `kelas` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nis` int DEFAULT NULL,
-  `role` enum('siswa') COLLATE utf8mb4_general_ci NOT NULL,
+  `nis` int NOT NULL,
   `waktu_buat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -156,9 +152,9 @@ CREATE TABLE `siswa` (
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `username`, `password`, `kelas`, `nis`, `role`, `waktu_buat`) VALUES
-(1, 'jhon', 'jhonreal', 'XXI RPL 5', 1020304050, 'siswa', '2026-01-10 02:49:00'),
-(2, 'rusdi', 'atminjahat', 'XIV RPL 1', 1234567890, 'siswa', '2026-02-12 07:49:00');
+INSERT INTO `siswa` (`id_siswa`, `username`, `password`, `kelas`, `nis`, `waktu_buat`) VALUES
+(1, 'jhon', 'jhonreal', 'XXI RPL 5', 1020304050, '2026-01-10 02:49:00'),
+(2, 'rusdi', 'atminjahat', 'XIV RPL 1', 1234567890, '2026-02-12 07:49:00');
 
 --
 -- Indexes for dumped tables
@@ -220,7 +216,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
-  MODIFY `id_aspirasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_aspirasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `feedback`

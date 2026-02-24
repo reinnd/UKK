@@ -26,9 +26,13 @@ class m_aspirasi{
     }
   }
 
-    // function get_data_by_id($id) {
+    function get_data_by_id($id) {
       
-    // }
+    }
+
+    function get_data_by_user_id($id_siswa) {
+      
+    }
     
     function add_data( $judul, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback){
       
@@ -38,7 +42,7 @@ class m_aspirasi{
       $query = mysqli_query($conn->conn, $sql);
       
       if($query){
-        echo "<script>alert('data berhasil ditambah');  window.location='../view/admin/a_dashboard.php';</script>";
+        echo "<script>alert('data berhasil ditambah');  window.location='../view/admin/a_aspirasi.php';</script>";
       } else{
         echo "<script>alert('data gagal ditambah');  window.location='../view/admin/a_form.php';</script>";
       }

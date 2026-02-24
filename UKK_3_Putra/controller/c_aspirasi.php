@@ -13,12 +13,13 @@ try{
 
       $_SERVER['REQUEST_METHOD'] = $_POST;
 
-        $judul          = $_POST['$judul'];
+        $judul          = $_POST['judul'];
         $id_siswa       = $_POST['id_siswa'];
         $isi_aspirasi   = $_POST['isi_aspirasi'];
         $status         = $_POST['status'];
         $id_kategori    = $_POST['id_kategori'];
         $id_feedback    = $_POST['id_feedback'];
+
 
       if($_GET['action'] == 'add'){
         $aspirasi->add_data($judul, $id_siswa, $isi_aspirasi, $status, $id_kategori, $id_feedback);

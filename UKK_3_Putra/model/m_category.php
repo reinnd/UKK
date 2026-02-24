@@ -6,7 +6,7 @@
     function get_data(){
       $conn = new m_connection();
       
-      $sql = " SELECT * FROM kategori  ";
+      $sql = " SELECT * FROM kategori";
       $query = mysqli_query($conn->conn, $sql);
       
       if($query->num_rows > 0){

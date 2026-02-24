@@ -19,13 +19,13 @@
     </header>
     <div class="main-container flex">
         <nav class="">
-            <button class="nav-button grid">
+            <button class="grid nav-button">
                 <div>ico</div>
                 <p>dashboard</p>
                 <div></div>
             </button>
             <div class="dropdown">
-                <button class="nav-button grid" id="dropdown-triger" onclick="toggleNavDropdown()">
+                <button class="grid nav-button" id="dropdown-triger" onclick="toggleNavDropdown()">
                     <div>ico</div>
                     <p>aspirasi</p>
                     <div id="arrow">></div>
@@ -37,12 +37,12 @@
                 </div>
             </div>
             
-            <button class="nav-button grid">
+            <button class="grid nav-button">
                 <div>ico</div>
                 <p>histori</p>
                 <div></div>
             </button>
-            <button class="nav-button grid">
+            <button class="grid nav-button">
                 <div>ico</div>
                 <p>setting</p>
                 <div></div>
