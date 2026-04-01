@@ -1,13 +1,13 @@
 <?php 
     include "../../controller/c_category.php";
-    include "a_header.php";
     $active_page = "category";
+    include "../html/header.php";
 ?>
     <title>Semua Kategori</title>
 </head>
 <body>
 <?php 
-    include "a_navbar.php";
+    include "../html/navbar.php";
 ?>
     <div class="grid">
         <div class="container">
@@ -64,7 +64,7 @@
     </div>
 
 <?php 
-    include "a_footer.php";
+    include "../html/footer.php";
 ?>
 </body>
 </html>

@@ -27,10 +27,13 @@ try{
       } elseif($_GET['action'] == 'update'){
 
       }
+        
     } else{
       
     }
   } else{
+    $total_data = $aspirasi->count_all();
+    $total_data_status = $aspirasi->count_by_status();
     $data = $aspirasi->get_data();
   }
 } catch(Exception $e) {

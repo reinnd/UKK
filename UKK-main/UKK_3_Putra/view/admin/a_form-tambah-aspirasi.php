@@ -2,14 +2,14 @@
     include_once "../../controller/c_category.php";
     //head
     $active_page = 'add-aspiration';
-    include "a_header.php";
+    include "../html/header.php";
 ?>
     <title>Buat Aspirasimu</title>
 </head>
 <body>
     <!-- header & navigation -->
 <?php
-    include "a_navbar.php";
+    include "../html/navbar.php";
 ?>
 <!-- main start here -->
   <div class="container">
@@ -48,5 +48,5 @@
   </div>
 <!-- footer & closing -->
 <?php
-    include "a_footer.php";
+    include "../html/footer.php";
 ?>

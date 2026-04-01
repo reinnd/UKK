@@ -1,23 +1,18 @@
 <?php
   include_once "../../controller/c_aspirasi.php";
-  include "a_header.php";
+  include "../html/header.php";
 ?>
   <title>Aspirasi</title>
 </head>
 <body>
   <?php 
-    include "a_navbar.php";
+    include "../html/navbar.php";
   ?>
 
-  <div class="container">
-    <p>akses cepat</p>
-    <a class="box" href="#">Belum dibalas</a>
-    <div class="box">Edit</div>
-    <div class="box"></div>
-  </div>
 
   <div class="container">
       <p>semua aspirasi</p>
+      <br>
       <div class="table-flow">
         <table>
           <thead>
@@ -42,7 +37,7 @@
               <td><?= $result->isi_kategori ?></td>
               <td><?= $result->isi_aspirasi ?></td>
               <td><?= $result->isi_feedback ?></td>
-              <td><a href="a_feedback.php?id=<?= $result->id_aspirasi ?>">ini tombol</a></td>
+              <td><a href="../html/feedback.php?id=<?= $result->id_aspirasi ?>">feedback</a></td>
             </tr>
             <?php 
             }
@@ -52,7 +47,7 @@
       </div>
     </div>
   <?php
-    include "a_footer.php";
+    include "../html/footer.php";
   ?>
 </body>
 </html>

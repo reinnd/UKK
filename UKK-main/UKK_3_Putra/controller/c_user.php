@@ -26,21 +26,22 @@ try {
                     $_SESSION['role']  = 'admin';
                     header("Location: ../view/admin/a_dashboard.php");
                     exit;
-                } else {
+                }
 
-                    $result = $siswa->login($username, $password);
+                $result = $siswa->login($username, $password);
 
-                    if ($result && $result->num_rows > 0) {
+                if ($result && $result->num_rows > 0) {
                     $data = $result->fetch_object();
                     $_SESSION['login'] = true;
                     $_SESSION['user']  = $data->username;
                     $_SESSION['role']  = 'siswa';
-                    header("Location: ../view/siswa/s_dashboard.php");
+                    header("Location: ../view/siswa/u_dashboard.php");
                     exit;
-                    } else {
-                        echo "Username atau Password salah!";
-                    }
                 }
+
+                echo "Username atau Password salah!";
+                
+                
       
 
             } elseif ($_GET['action'] == "register") {
@@ -64,7 +65,10 @@ try {
                 exit;
             }
         } else {
-            $user->delete_siswa();
+            
+            if ($_GET['action'] == "admin") {
+                # code...
+            }
         }
     }
      else {

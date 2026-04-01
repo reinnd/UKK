@@ -1,14 +1,14 @@
 <?php
     include_once "../../controller/c_category.php";
     //head
-    include("u_header.php");
+    include("../html/header.php");
 ?>
     <title>Tulis Aspirasimu</title>
 </head>
 <body>
     <!-- header & navigation -->
 <?php
-    include("u_navbar.php");
+    include("../html/navbar.php");
 ?>
 <!-- main start here -->
             <section class="container grid">
@@ -50,5 +50,5 @@
             </section>
 <!-- footer & closing -->
 <?php
-    include("u_footer.php");
+    include("../html/footer.php");
 ?>

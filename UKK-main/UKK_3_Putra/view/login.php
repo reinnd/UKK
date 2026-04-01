@@ -1,7 +1,7 @@
 <?php 
 
 // include_once("../controller/c_user.php");
-
+include_once "../controller/lgin.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Aspirasi Siswa</title>
-    <link rel="stylesheet" href="css/prop.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="asset/style/prop.css">
+    <link rel="stylesheet" href="asset/style/font.css">
+    <link rel="stylesheet" href="asset/style/style.css">
     <style>
         body {
             display: flex;

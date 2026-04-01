@@ -57,6 +57,37 @@ class m_aspirasi{
        echo "<script>alert('data dihapus');  window.location.href='../view/admin/a_form.php';</script>";
      }
    }
+
+   function count_all(){
+     $conn = new m_connection();
+     $sql = "SELECT COUNT(*) AS total_aspirasi FROM aspirasi";
+     $query = mysqli_query($conn->conn, $sql);
+     $data = mysqli_fetch_object($query);
+     return $data;
+   }
+
+   function count_by_status(){
+     $conn = new m_connection();
+     $sql = "SELECT COUNT(*) AS total_aspirasi FROM aspirasi WHERE `status` IN ('menunggu', 'diproses', 'selesai')";
+     $query = mysqli_query($conn->conn, $sql);
+     $data = mysqli_fetch_object($query);
+     return $data;
+   }
+  //  function count_by_status_type_2(){
+  //    $conn = new m_connection();
+  //    $sql = "SELECT COUNT(*) AS total_aspirasi FROM aspirasi WHERE `status` = 'diproses'";
+  //    $query = mysqli_query($conn->conn, $sql);
+  //    $data = mysqli_fetch_object($query);
+  //    return $data;
+  //  }
+  //  function count_by_status_type_3(){
+  //    $conn = new m_connection();
+  //    $sql = "SELECT COUNT(*) AS total_aspirasi FROM aspirasi WHERE `status` = 'selesai'";
+  //    $query = mysqli_query($conn->conn, $sql);
+  //    $data = mysqli_fetch_object($query);
+  //    return $data;
+  //  }
+
   
 }
 
