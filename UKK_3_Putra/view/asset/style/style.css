@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-grow{
+  flex: 1;
+}
+
+.flex-center{
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.grid{
+    display: grid;
+    justify-content: space-between;
+    align-content: space-between; 
+    
+}
+
+/* dashboard grid template */
+.selesai-aspirasi{ grid-area: selesai;}
+.diproses-aspirasi{ grid-area: diproses;}
+.menunggu-aspirasi{ grid-area: menunggu;}
+.total-aspirasi{ grid-area: total;}
+
+.grid-template-default{
+  grid-template-areas: 
+  "selesai diproses menunggu"
+  "total total total";
+}
+
+.grid-template-1600{
+  grid-template-areas: 
+  "selesai diproses"
+  "total menunggu";
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.overflow{
+  overflow: auto;
+}
+
+.overflow-x{
+  overflow-x: hidden;
+}
+
+a{
+  text-decoration: none;
+}
+
+.edit{
+  
+  background-color: rgb(59, 78, 253);
+  color: #000;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.delete{
+  
+  background-color: rgb(221, 34, 34);
+  color: #000;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.filter{
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2px 5px;
+  color: #000;
+  background-color: aliceblue;
+  margin-left:1em ;
+}
+
+.balas{
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2px 5px;
+  color: #000;
+  background-color: rgb(87, 105, 206);
+}
+
+body{
+    margin: 0;
+}
+
+/* main prop */
+main {
+  background-color: var(--white-500);
+  flex: 1;
+  /* Tambahkan margin-top agar tidak tertutup header */
+  margin-top: var(--header-height-base); 
+  margin-left: var(--navbar-width-base);
+  min-height: calc(100vh - var(--header-height-base));
+  transition: 0.15s ease-in-out;
+  padding: 0 2em 2em 2em;
+}
+
+main.nav-toggle {
+  margin-left: 0px;
+}
+
+.container{
+    border: transparent;
+    background-color: var(--white-800);
+    min-width: 10vw;
+    padding: 1.4em;
+    margin-top: 24px;
+    border-radius: 16px;
+    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* display: block; Mengubah dari grid/flex agar tabel mengisi lebar */
+    overflow-x: auto;
+}
+
+.box{
+    border: transparent;
+    background-color: var(--white-500);
+    border-radius: 8px;
+    overflow-x: hidden;
+}
+
+.dash p{
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+}
+
+.dash div{
+    font-weight: 500;
+    font-size: 2em;
+    padding: 0em 0.8em;
+}
+
+/* table prop */
+
+table{
+    border-collapse: collapse;
+}
+
+th,td{
+  padding: 0.5em 1em;
+}
+
+th:nth-child(1), td:nth-child(1){
+  text-align: center;
+  /* background-color: red; */
+}
+
+th, tr:nth-child(even){
+  background-color: var(--white-600);
+}
+
+tr:nth-child(odd){
+  background-color: var(--white-300);
+}
+
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 16px 0 0 0;
+}
+
+.pagination li a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  border: 1px solid gray;
+  color: black;  
+  margin: 0 4px;
+  border-radius: 5px;
+}
+
+.pagination li a.active {
+  background-color: #e6b5b5;
+}
+
+.pagination li a.disabled {
+  color: #dddddd;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 800px){
+  main{
+    margin-left: 0px;
+    overflow: hidden;
+    padding: 1em 0em;
+  }
+
+  .grid-template-default{
+    grid-template-areas: 
+  "selesai"
+  "diproses"
+  "menunggu"
+  "total";
+  }
+
+  main.nav-toggle{
+    margin-left: 200px;
+    width: calc(100vw - 200px);
+  }
+}
