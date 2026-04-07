@@ -4,6 +4,8 @@
     use App\c_auth\guard;
     guard::notlogedin();
     include_once "../../controller/c_aspirasi.php";
+    $db = new m_aspirasi();
+    $user_data = $db->get_data_by_id($_GET['id']);
 
     include_once "../../controller/c_kategori.php";
     //head
@@ -23,19 +25,19 @@
             
             <form action="../../controller/c_aspirasi.php?action=add" method="POST">
                 <?php 
-                    foreach($user_data as $result){
+                    
                 ?>
                     <div class="form-group flex">
                         <label for="judul">Topik</label>
-                        <input type="text" value="<?= $result->judul ?>" id="judul" name="judul" class="form-control" placeholder="Contoh: Kerusakan Fasilitas" required>
+                        <input type="text" value="<?= $user_data->judul ?>" id="judul" name="judul" class="form-control" placeholder="Contoh: Kerusakan Fasilitas" required>
                     </div>
 
                     <div class="form-group flex">
                         <label for="kategori">Kategori</label>
                         <select id="kategori" name="kategori" class="form-control" required>
-                            <option value="" disabled selected>Pilih kategori..</option>
+                            <option value="<?= $user_data->id_kategori ?>" disabled selected><?= $user_data->isi_kategori ?></option>
                     <?php 
-                        foreach($data as $result){
+                        foreach($all_kategori as $result){
                     ?>
                             <option value="<?= $result->id_kategori ?>"><?= $result->isi_kategori; ?></option>
                     <?php } ?>
@@ -49,7 +51,7 @@
 
                     <input type="number" id="id_siswa" name="id_siswa" value="<?= $_SESSION['id'] ?>" class="form-control" hidden>
 
-                <?php } ?>
+                <?php  ?>
 
                 <button type="submit" class="btn-form">Kirim Aspirasi</button>
             </form>

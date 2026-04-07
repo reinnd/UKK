@@ -22,13 +22,14 @@
         <table>
           <thead>
             <tr>
-              <th>no</th>
-              <th>topik</th>
-              <th>dari</th>
-              <th>kategori</th>
-              <th>isi</th>
-              <th rowspan="2">balasan</th>
-              <th>status</th>
+              <th>No</th>
+              <th>Topik</th>
+              <th>Dari</th>
+              <th>Kategori</th>
+              <th>Isi</th>
+              <th rowspan="2">Alasan</th>
+              <th>Status</th>
+              <th>Tanggal</th>
               <th></th>
               <th></th>
             </tr>
@@ -46,8 +47,9 @@
               <td><?= $result->isi_aspirasi ?></td>
               <td><?= $result->isi_feedback ?></td>
               <td><?= $result->status ?></td>
-              <td><a class="balas" href="a_feedback.php?id=<?= $result->id_aspirasi ?>">Balas</a></td>
-              <td><a class="balas" href="a_feedback.php?id=<?= $result->id_aspirasi ?>">Status</a></td>
+              <td><?= date( "j M Y, l H:i" ,strtotime($result->waktu_upload)) ?></td>
+              <td><a class="edit" href="a_balas.php?id=<?= $result->id_aspirasi ?>">Balas</a></td>
+              <td><a class="balas" href="a_balas.php?id=<?= $result->id_aspirasi ?>">Status</a></td>
             </tr>
             <?php 
             }

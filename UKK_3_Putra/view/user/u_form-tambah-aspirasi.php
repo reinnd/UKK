@@ -30,7 +30,7 @@
                     <select id="kategori" name="kategori" class="form-control" required>
                         <option value="" disabled selected>Pilih kategori..</option>
                 <?php 
-                    foreach($data as $result){
+                    foreach($all_kategori as $result){
                 ?>
                         <option value="<?= $result->id_kategori ?>"><?= $result->isi_kategori; ?></option>
                 <?php } ?>

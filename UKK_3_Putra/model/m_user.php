@@ -143,6 +143,7 @@ class m_siswa extends m_user {
 
         $dupe = $this->dupe_guard($username, 'siswa');
         if($dupe){
+            session_start();
             if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
                 echo "<script>
                         alert('Registrasi Gagal: Username sudah terdaftar. Silakan gunakan username lain.');

@@ -55,7 +55,7 @@
                                             <a id="edt" class="edit">notedit</a>
                                             <a id="del" class="delete">nothapus</a>
                                         <?php } else { ?>
-                                            <a href="../../controller/c_aspirasi.php?action=edit&id=<?= $result->id_aspirasi ?>" id="edt" class="edit">edit</a>
+                                            <a href="u_form-edit-aspirasi.php?&id=<?= $result->id_aspirasi ?>" id="edt" class="edit">edit</a>
                                             <a href="../../controller/c_aspirasi.php?action=delete&id=<?= $result->id_aspirasi ?>" id="del" class="delete">hapus</a>
                                         <?php } ?>
                                     </td>
