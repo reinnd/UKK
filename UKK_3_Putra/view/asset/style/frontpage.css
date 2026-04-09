@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--white-700);
+    margin: 0;
+}
+
+.password-eye {
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  margin-right: 20px;
+}
+
+.frontpage-card {
+    /* background-color: var(--white-800);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.frontpage-card h2 {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.frontpage-card p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.input-container {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--white-1000);
+}
+
+.input-container2 {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--white-1000);
+}
+
+.input-container2-focus {
+    border: 2px solid black;
+}
+
+.form-password {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--white-1000);
+}
+
+.form-password:focus {
+    outline: none;
+}
+
+.frontpage-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e6b5b5;
+    /* Warna pinkish sesuai menu aktifmu */
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: 0.3s;
+}
+
+.frontpage-button:hover {
+    background-color: #d4a4a4;
+}
+
+.switch-gate {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.switch-gate a {
+    color: #5769ce;
+    font-weight: 600;
+    text-decoration: none;
+}
