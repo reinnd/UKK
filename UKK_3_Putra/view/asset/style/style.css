@@ -1,71 +1,77 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
-    font-size: 16px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  font-size: 16px;
 }
 
-.flex{
-    display: flex;
-    justify-content: space-between;
+.flex {
+  display: flex;
+  justify-content: space-between;
 }
 
-.flex-grow{
+.flex-grow {
   flex: 1;
 }
 
-.flex-center{
+.flex-center {
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
 }
 
-.grid{
-    display: grid;
-    justify-content: space-between;
-    align-content: space-between; 
-    
+.grid {
+  display: grid;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 /* dashboard grid template */
-.selesai-aspirasi{ grid-area: selesai;}
-.diproses-aspirasi{ grid-area: diproses;}
-.menunggu-aspirasi{ grid-area: menunggu;}
-.total-aspirasi{ grid-area: total;}
-
-.grid-template-default{
-  grid-template-areas: 
-  "selesai diproses menunggu"
-  "total total total";
+.selesai-aspirasi {
+  grid-area: selesai;
+}
+.diproses-aspirasi {
+  grid-area: diproses;
+}
+.menunggu-aspirasi {
+  grid-area: menunggu;
+}
+.total-aspirasi {
+  grid-area: total;
 }
 
-.grid-template-1600{
-  grid-template-areas: 
-  "selesai diproses"
-  "total menunggu";
+.grid-template-default {
+  grid-template-areas:
+    "selesai diproses menunggu"
+    "total total total";
 }
 
-.fixed{
-    position: fixed;
-    top: 0;
-    left: 0;
+.grid-template-1600 {
+  grid-template-areas:
+    "selesai diproses"
+    "total menunggu";
 }
 
-.overflow{
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.overflow {
   overflow: auto;
 }
 
-.overflow-x{
+.overflow-x {
   overflow-x: auto;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.edit{
-  
+.edit {
   background-color: transparent;
   color: #000;
   border: 2px solid var(--accent-medium);
@@ -73,8 +79,7 @@ a{
   padding: 2px 5px;
 }
 
-.delete{
-  
+.delete {
   background-color: var(--accent-heavy);
   color: #000;
   border: 1px solid var(--accent-bold);
@@ -82,17 +87,17 @@ a{
   padding: 2px 5px;
 }
 
-.filter{
+.filter {
   border: 1px solid #333;
   border-radius: 5px;
   padding: 2px 5px;
   color: #000;
   background-color: aliceblue;
-  margin-left:1em ;
+  margin-left: 1em;
 }
 
-body{
-    margin: 0;
+body {
+  margin: 0;
 }
 
 /* main prop */
@@ -100,7 +105,7 @@ main {
   background-color: var(--white-500);
   flex: 1;
   /* Tambahkan margin-top agar tidak tertutup header */
-  margin-top: var(--header-height-base); 
+  margin-top: var(--header-height-base);
   margin-left: var(--navbar-width-base);
   min-height: calc(100vh - var(--header-height-base));
   transition: 0.15s ease-in-out;
@@ -111,58 +116,61 @@ main.nav-toggle {
   margin-left: 0px;
 }
 
-.container{
-    border: transparent;
-    background-color: var(--white-800);
-    min-width: 10vw;
-    padding: 1.4em;
-    margin-top: 24px;
-    border-radius: 16px;
-    gap: 22px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* display: block; Mengubah dari grid/flex agar tabel mengisi lebar */
-    overflow-x: auto;
+.container {
+  border: transparent;
+  background-color: var(--white-800);
+  min-width: 10vw;
+  padding: 1.4em;
+  margin-top: 24px;
+  border-radius: 16px;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* display: block; Mengubah dari grid/flex agar tabel mengisi lebar */
+  overflow-x: auto;
 }
 
-.box{
-    border: transparent;
-    background-color: var(--white-500);
-    border-radius: 8px;
-    overflow-x: hidden;
+.box {
+  border: transparent;
+  background-color: var(--white-500);
+  border-radius: 8px;
+  overflow-x: hidden;
 }
 
-.dash p{
-    font-weight: 600;
-    font-size: 1.2em;
-    padding: 0.5em 1em;
+.dash p {
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0.5em 1em;
 }
 
-.dash div{
-    font-weight: 500;
-    font-size: 2em;
-    padding: 0em 0.8em;
+.dash div {
+  font-weight: 500;
+  font-size: 2em;
+  padding: 0em 0.8em;
 }
 
 /* table prop */
 
-table{
-    border-collapse: collapse;
+table {
+  border-collapse: collapse;
 }
 
-th,td{
+th,
+td {
   padding: 0.5em 1em;
 }
 
-th:nth-child(1), td:nth-child(1){
+th:nth-child(1),
+td:nth-child(1) {
   text-align: center;
   /* background-color: red; */
 }
 
-th, tr:nth-child(even){
+th,
+tr:nth-child(even) {
   background-color: var(--white-600);
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd) {
   background-color: var(--white-300);
 }
 
@@ -180,13 +188,13 @@ tr:nth-child(odd){
   padding: 8px 12px;
   text-decoration: none;
   border: 1px solid gray;
-  color: black;  
+  color: black;
   margin: 0 4px;
   border-radius: 5px;
 }
 
 .pagination li a.active {
-  background-color: #e6b5b5;
+  background-color: #819a91;
 }
 
 .pagination li a.disabled {
@@ -195,22 +203,22 @@ tr:nth-child(odd){
   pointer-events: none;
 }
 
-@media screen and (max-width: 800px){
-  main{
+@media screen and (max-width: 800px) {
+  main {
     margin-left: 0px;
     overflow: hidden;
     padding: 1em 0em;
   }
 
-  .grid-template-default{
-    grid-template-areas: 
-  "selesai"
-  "diproses"
-  "menunggu"
-  "total";
+  .grid-template-default {
+    grid-template-areas:
+      "selesai"
+      "diproses"
+      "menunggu"
+      "total";
   }
 
-  main.nav-toggle{
+  main.nav-toggle {
     margin-left: 200px;
     width: calc(100vw - 200px);
   }
