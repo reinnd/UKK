@@ -55,18 +55,17 @@
       $sql = "INSERT INTO kategori (id_kategori, isi_kategori, waktu_upload) 
               VALUES (NULL, '$isi_kategori', NOW())";
       $query = mysqli_query($this->conn, $sql);
-
-      
-      session_start();
       if($query){
-        $this->log_agent->log_state(
-          $_SESSION['id'], 
-          $_SESSION['role'], 
-          "$this->act", 
-          mysqli_insert_id($this->conn), 
-          "Menambah kategori: $isi_kategori"
+        session_start();
+      $this->log_agent->log_state(
+        $_SESSION['id'],
+        $_SESSION['role'],
+        "$this->act",
+        mysqli_insert_id($this->conn),
+        "Menambah kategori: $isi_kategori"
         );
-        echo "<script>alert('Data berhasil ditambah'); window.location='../view/admin/a_kategori.php'</script>";
+
+        echo "<script>alert('data berhasil ditambah');  window.location='../view/admin/a_kategori.php';</script>";
       } else {
         echo "<script>alert('Data gagal ditambah'); window.location='../view/admin/a_kategori.php'</script>";
       }
@@ -77,8 +76,9 @@
       $sql = "DELETE FROM kategori WHERE id_kategori = $id_kategori";
       $query = mysqli_query($this->conn, $sql);
 
-      session_start();
+      
       if($query){
+        session_start();
         $this->log_agent->log_state(
           $_SESSION['id'], 
           $_SESSION['role'], 

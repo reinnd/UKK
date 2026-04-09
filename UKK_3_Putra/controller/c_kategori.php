@@ -1,42 +1,33 @@
 <?php
-  include_once __DIR__ . "../../model/m_kategori.php";
-  
-  $kategori = new m_kategori();
+include_once __DIR__ . "../../model/m_kategori.php";
 
-  try {
-    if(!empty($_GET['action'])){
+$kategori = new m_kategori();
 
-      if($_GET['action'] != "delete" ) {
+try {
+  if (!empty($_GET['action'])) {
 
-        if($_GET['action'] == 'edit'){
+    if ($_GET['action'] != "delete") {
 
-          $id_kategori = $_GET['id_kategori'];
-          $data = $kategori->get_data_by_id($id_kategori);
+      $id_kategori = $_POST['id_kategori'];
+      $isi_kategori = $_POST['isi_kategori'];
 
-          header("Location: ../view/admin/a_kategori-edit.php?id_kategori=$id_kategori");
-        } else{
+      if ($_GET['action'] == "add") {
+        $kategori->add_data($isi_kategori);
 
-          $id_kategori = $_POST['id_kategori'];
-          $isi_kategori = $_POST['isi_kategori'];
+      } elseif ($_GET['action'] == "update") {
+        $kategori->update_data($id_kategori, $isi_kategori);
 
-          if($_GET['action'] == "add" ) {
-            $kategori->add_data($isi_kategori);
-
-          } elseif ($_GET['action'] == "update" ){
-            $kategori->update_data($id_kategori, $isi_kategori);
-
-          }
-        }
-
-      } else {
-        $id_kategori = $_GET['id_kategori']; 
-        $kategori->delete_data($id_kategori);
       }
+
     } else {
-      $all_kategori = $kategori->get_data();
+      $id_kategori = $_GET['id_kategori'];
+      $kategori->delete_data($id_kategori);
     }
-  } catch (Exception $e) {
-    $e->getMessage();
+  } else {
+    $all_kategori = $kategori->get_data();
   }
-  
+} catch (Exception $e) {
+  $e->getMessage();
+}
+
 ?>

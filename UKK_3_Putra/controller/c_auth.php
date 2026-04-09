@@ -22,7 +22,7 @@ class guard {
 
   public static function notlogedin(){
     if (!self::gate()) {
-      header("Location: ../view/login.php");
+      header("Location: /index.php");
       exit();
     }
   }
