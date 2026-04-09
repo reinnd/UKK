@@ -7,7 +7,7 @@
     //head
     include("../html/header.php");
 ?>
-    <link rel="stylesheet" href="../asset/style/form.css?v=2">
+    <link rel="stylesheet" href="../asset/style/form.css?v=2.1">
     <title>Tulis Aspirasimu</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
 
                 <input type="number" id="id_siswa" name="id_siswa" value="<?= $_SESSION['id'] ?>" class="form-control" hidden>
 
-                <button type="submit" class="btn-kirim">Kirim Aspirasi</button>
+                <button type="submit" class="btn-form">Kirim Aspirasi</button>
             </form>
         </section>
 <!-- footer & closing -->

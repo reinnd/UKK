@@ -16,10 +16,10 @@
 
 
   <div class="container">
-      <p>semua aspirasi  <span><button class="filter">🔍</button></span></p>
+      <p>semua aspirasi  <span><button class="filter"></button></span></p>
       
-      <div class="table-flow">
-        <table>
+      <div class="flex" style="overflow-x:scroll;">
+        <table class="flex-grow">
           <thead>
             <tr>
               <th>No</th>
@@ -49,7 +49,7 @@
               <td><?= $result->status ?></td>
               <td><?= date( "j M Y, l H:i" ,strtotime($result->waktu_upload)) ?></td>
               <td><a class="edit" href="a_balas.php?id=<?= $result->id_aspirasi ?>">Balas</a></td>
-              <td><a class="balas" href="a_balas.php?id=<?= $result->id_aspirasi ?>">Status</a></td>
+              <td><a class="delete" href="a_balas.php?id=<?= $result->id_aspirasi ?>">Status</a></td>
             </tr>
             <?php 
             }

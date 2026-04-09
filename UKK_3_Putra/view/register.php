@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // include_once("../controller/c_user.php");
 
@@ -6,14 +6,15 @@
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Aspirasi Siswa</title>
-    <link rel="stylesheet" href="asset/style//font.css">
-    <link rel="stylesheet" href="asset/style//prop.css?v=1.11">
-    <link rel="stylesheet" href="asset/style//header2.css?v=1.61">
-    <link rel="stylesheet" href="asset/style//style.css?v=1.61211">
+    <link rel="stylesheet" href="asset/style/font.css">
+    <link rel="stylesheet" href="asset/style/prop.css?v=3.1">
+    <link rel="stylesheet" href="asset/style/header.css?v=3">
+    <link rel="stylesheet" href="asset/style/style.css?v=3">
     <style>
         /* Menggunakan style yang sama dengan login untuk konsistensi */
         body {
@@ -36,7 +37,7 @@
 
         .register-card h2 {
             text-align: center;
-            font-weight: 900;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             font-size: 2rem;
         }
@@ -82,6 +83,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="register-card">
@@ -119,9 +121,10 @@
         </form>
 
         <div class="login-link">
-            Sudah punya akun? <a href="login.php">Login di sini</a>
+            Sudah punya akun? <a href="index.php">Login di sini</a>
         </div>
     </div>
 
 </body>
+
 </html>

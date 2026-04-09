@@ -1,21 +1,24 @@
-<?php 
+<?php
 
-    include_once("../controller/c_auth.php");
+include_once("../controller/c_auth.php");
 
-    use App\c_auth\guard;
-    guard::logedin();
+use App\c_auth\guard;
+guard::logedin();
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Aspirasi Siswa</title>
-    <link rel="stylesheet" href="asset/style//font.css">
-    <link rel="stylesheet" href="asset/style//prop.css?v=1.11">
-    <link rel="stylesheet" href="asset/style//header2.css?v=1.61">
-    <link rel="stylesheet" href="asset/style//style.css?v=1.61211">
+    <link rel="stylesheet" href="asset/style/font.css">
+    <link rel="stylesheet" href="asset/style/prop.css?v=3.1">
+    <link rel="stylesheet" href="asset/style/header.css?v=3">
+    <link rel="stylesheet" href="asset/style/style.css?v=3">
+    <link rel="stylesheet" href="asset/style/frontpage.css">
+    <link rel="stylesheet" href="asset/font/fontawesome/css/all.css">
     <style>
         body {
             display: flex;
@@ -38,7 +41,7 @@
 
         .login-card h2 {
             margin-bottom: 0.5rem;
-            font-weight: 900;
+            font-weight: 700;
             font-size: 2rem;
         }
 
@@ -64,14 +67,37 @@
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
             background-color: var(--white-1000);
+        }
+
+        .form-control2 {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: var(--white-1000);
+        }
+
+        .form-control2-focus {
+            border: 2px solid black;
+        }
+
+        .form-password {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--white-1000);
+        }
+
+        .form-password:focus {
+            outline: none;
         }
 
         .btn-login {
             width: 100%;
             padding: 12px;
-            background-color: #e6b5b5; /* Warna pinkish sesuai menu aktifmu */
+            background-color: #e6b5b5;
+            /* Warna pinkish sesuai menu aktifmu */
             border: none;
             border-radius: 8px;
             font-weight: 700;
@@ -96,6 +122,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="login-card">
@@ -110,7 +137,11 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" required>
+                <div class="flex form-control2" id="pw_holder">
+                    <input type="password" id="password" name="password" class="form-password" required>
+                    <span class="flex password-eye" id="pwSwitch"><i id="pw_eye"
+                            class="fa-solid fa-eye-slash"></i></span>
+                </div>
             </div>
 
             <button type="submit" class="btn-login">MASUK</button>
@@ -120,6 +151,33 @@
             Belum punya akun? <a href="register.php">Daftar sekarang</a>
         </div>
     </div>
+    <script>
+        const pwBtn = document.getElementById('pwSwitch');
+        const thePw = document.getElementById('password');
+        const pwEye = document.getElementById('pw_eye');
+        const pwHolder = document.getElementById('pw_holder');
+        pwBtn.addEventListener('click', function () {
+            if (thePw.type === 'password') {
+                thePw.type = 'text';
+                pwEye.classList.remove('fa-eye-slash');
+                pwEye.classList.add('fa-eye')
 
+            } else {
+                thePw.type = 'password';
+                pwEye.classList.remove('fa-eye');
+                pwEye.classList.add('fa-eye-slash')
+            }
+        });
+
+        thePw.addEventListener('focus', function () {
+            pwHolder.classList.add('form-control2-focus');
+        });
+
+        thePw.addEventListener('blur', function () {
+            pwHolder.classList.remove('form-control2-focus');
+        });
+
+    </script>
 </body>
+
 </html>
