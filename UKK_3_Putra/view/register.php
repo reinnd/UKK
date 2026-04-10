@@ -32,8 +32,8 @@
             </div>
 
             <div class="form-group">
-                <label for="nis">NIS (Nomor Induk Siswa)</label>
-                <input type="text" id="nis" name="nis" class="input-container">
+                <label for="fullname">Nama lengkap</label>
+                <input type="text" id="fullname" name="fullname" class="input-container">
             </div>
 
             <div class="form-group">

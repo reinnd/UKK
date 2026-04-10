@@ -5,7 +5,7 @@ use App\c_auth\guard;
 guard::notlogedin();
 include_once "../../controller/c_aspirasi.php";
 $db = new m_aspirasi();
-$user_data = $db->get_data_by_user_id($_SESSION['id']);
+$user_data = $db->get_data_by_user_id($_SESSION['id2']);
 //head
 include("../html/header.php");
 ?>
@@ -43,32 +43,36 @@ include("../html/header.php");
                 <tbody>
                     <?php
                     $no = 1;
-                    foreach ($user_data as $result) {
-                        ?>
-                        <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $result->username ?></td>
-                            <td><?= $result->judul ?></td>
-                            <td><?= $result->isi_kategori ?></td>
-                            <td><?= $result->isi_aspirasi ?></td>
-                            <td><?= date('Y M d', strtotime($result->waktu_upload)) ?></td>
-                            <td id="stat"><?= $result->status ?></td>
-                            <td><?= $result->isi_feedback ?></td>
-                            <td>
-                                <?php
-                                if ($result->status !== "menunggu") {
-                                    ?>
-                                    <a id="edt" class="edit">notedit</a>
-                                    <a id="del" class="delete">nothapus</a>
-                                <?php } else { ?>
-                                    <a href="u_form-edit-aspirasi.php?&id=<?= $result->id_aspirasi ?>" id="edt"
-                                        class="edit">edit</a>
-                                    <a href="../../controller/c_aspirasi.php?action=delete&id=<?= $result->id_aspirasi ?>"
-                                        id="del" class="delete">hapus</a>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                        <?php
+                    if (!empty($user_data)) {
+                        foreach ($user_data as $result) {
+                            ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $result->username ?></td>
+                                <td><?= $result->judul ?></td>
+                                <td><?= $result->isi_kategori ?></td>
+                                <td><?= $result->isi_aspirasi ?></td>
+                                <td><?= date('Y M d', strtotime($result->waktu_upload)) ?></td>
+                                <td id="stat"><?= $result->status ?></td>
+                                <td><?= $result->isi_feedback ?></td>
+                                <td>
+                                    <?php
+                                    if ($result->status !== "menunggu") {
+                                        ?>
+                                        <a id="edt" class="edit">notedit</a>
+                                        <a id="del" class="delete">nothapus</a>
+                                    <?php } else { ?>
+                                        <a href="u_form-edit-aspirasi.php?&id=<?= $result->id_aspirasi ?>" id="edt"
+                                            class="edit">edit</a>
+                                        <a href="../../controller/c_aspirasi.php?action=delete&id=<?= $result->id_aspirasi ?>"
+                                            id="del" class="delete">hapus</a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    } else {
+                        echo '<tr><td colspan="9" style="text-align: center;">Belum ada aspirasi</td></tr>';
                     }
                     ?>
                 </tbody>

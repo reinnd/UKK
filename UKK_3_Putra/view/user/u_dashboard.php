@@ -11,7 +11,7 @@ $total_data = $db->count_by_user_id($_SESSION['id']);
 $total_data_status1 = $db->count_by_user_id($_SESSION['id'], "selesai");
 $total_data_status2 = $db->count_by_user_id($_SESSION['id'], "proses");
 $total_data_status3 = $db->count_by_user_id($_SESSION['id'], "menunggu");
-$user_data = $db->get_data_by_user_id($_SESSION['id']);
+$user_data = $db->get_data_by_user_id($_SESSION['id2']);
 //head
 include("../html/header.php");
 ?>
