@@ -19,10 +19,11 @@ class m_aspirasi
   public function get_data()
   {
     //query tabel aspirasi
-    $sql = "SELECT aspirasi.*, kategori.isi_kategori, siswa.username, feedback.isi_feedback
+    $sql = "SELECT aspirasi.*, kategori.isi_kategori, user.username, feedback.isi_feedback
             FROM aspirasi
             INNER JOIN kategori ON aspirasi.id_kategori = kategori.id_kategori
             INNER JOIN siswa ON aspirasi.id_siswa = siswa.id_siswa
+            INNER JOIN user ON siswa.id_user = user.id_user
             LEFT JOIN feedback ON aspirasi.id_feedback = feedback.id_feedback";
     $query = mysqli_query($this->conn, $sql);
 
@@ -39,10 +40,12 @@ class m_aspirasi
   public function get_data_by_id($id_aspirasi)
   {
 
-    $sql = "SELECT aspirasi.*, kategori.isi_kategori, siswa.username, feedback.isi_feedback
+    $sql = "SELECT aspirasi.*, kategori.isi_kategori, user.username, feedback.isi_feedback
             FROM aspirasi
             INNER JOIN kategori ON aspirasi.id_kategori = kategori.id_kategori
             INNER JOIN siswa ON aspirasi.id_siswa = siswa.id_siswa
+            INNER JOIN user ON siswa.id_user = user.id_user
+            
             LEFT JOIN feedback ON aspirasi.id_feedback = feedback.id_feedback
             WHERE aspirasi.id_aspirasi = $id_aspirasi";
     $query = mysqli_query($this->conn, $sql);
@@ -56,10 +59,11 @@ class m_aspirasi
 
   public function get_data_by_user_id($id_siswa)
   {
-    $sql = "SELECT aspirasi.*, kategori.isi_kategori, siswa.username, feedback.isi_feedback
+    $sql = "SELECT aspirasi.*, kategori.isi_kategori, siswa.nama_lengkap ,user.username, feedback.isi_feedback
             FROM aspirasi
             INNER JOIN kategori ON aspirasi.id_kategori = kategori.id_kategori
             INNER JOIN siswa ON aspirasi.id_siswa = siswa.id_siswa
+            INNER JOIN user ON siswa.id_user = user.id_user
             LEFT JOIN feedback ON aspirasi.id_feedback = feedback.id_feedback
             WHERE aspirasi.id_siswa = '$id_siswa'";
     $query = mysqli_query($this->conn, $sql);
@@ -70,27 +74,27 @@ class m_aspirasi
       }
       return $result;
     } else {
-      echo "ga ada data";
+      return [];
     }
   }
 
   public function add_data($judul, $id_siswa, $isi_aspirasi, $id_kategori)
   {
 
-    $cooked_kategori = $this->get_data_by_id($id_kategori)->isi_kategori;
+    // $cooked_kategori = $this->get_data_by_id($id_kategori)->isi_kategori;
 
     $sql = "INSERT INTO aspirasi (id_aspirasi, judul, id_siswa, isi_aspirasi, `status`, id_kategori, id_feedback, waktu_upload) 
-            VALUES (NULL,'$judul', $id_siswa, '$isi_aspirasi', 'menunggu', $id_kategori, 1, NOW() )";
+            VALUES (NULL,'$judul', 1, '$isi_aspirasi', 'menunggu', $id_kategori, 1, NOW() )";
     $query = mysqli_query($this->conn, $sql);
     if ($query) {
-      session_start();
-      $this->log_agent->log_state(
-        $_SESSION['id'],
-        $_SESSION['role'],
-        "$this->act",
-        mysqli_insert_id($this->conn),
-        "Menambah aspirasi: $judul, $isi_aspirasi, kategori: $cooked_kategori"
-      );
+      // session_start();
+      // $this->log_agent->log_state(
+      //   $_SESSION['id'],
+      //   $_SESSION['role'],
+      //   "$this->act",
+      //   mysqli_insert_id($this->conn),
+      //   "Menambah aspirasi: $judul, $isi_aspirasi, kategori: "
+      // );
 
       echo "<script>alert('data berhasil ditambah');  window.location='../view/user/u_aspirasi.php';</script>";
     } else {

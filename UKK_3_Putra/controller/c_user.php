@@ -22,34 +22,29 @@ try {
                     if (password_verify($password, $data->password)) {
                         session_start();
                         $_SESSION['login'] = true;
-                        $_SESSION['id'] = $data->id_admin;
+                        $_SESSION['id'] = $data->id_user;
                         $_SESSION['user'] = $data->username;
-                        $_SESSION['role'] = 'admin';
-                        header("Location: ../view/admin/a_dashboard.php");
-                        exit;
+                        $_SESSION['role'] = $data->role;
+
+                        if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+                            header("Location: ../view/admin/a_dashboard.php");
+                            exit();
+                        }
+
+                        if (isset($_SESSION['role']) && $_SESSION['role'] === 'siswa') {
+                            $siswa_result = $siswa->get_data_by_user_id($_SESSION['id']);
+                            $_SESSION['id2'] = $siswa_result->id_siswa;
+                            header("Location: ../view/user/u_dashboard.php");
+                            exit();
+                        }
+
                     }
-                }
-
-                $result = $siswa->login($username);
-
-                if ($result && $result->num_rows > 0) {
-                    $data = $result->fetch_object();
-                    if (password_verify($password, $data->password)) {
-                        session_start();
-                        $_SESSION['login'] = true;
-                        $_SESSION['id'] = $data->id_siswa;
-                        $_SESSION['user'] = $data->username;
-                        $_SESSION['role'] = 'siswa';
-                        header("Location: ../view/user/u_dashboard.php");
-                        exit;
-                    }
-                }
-
-                echo "<script>
+                } else {
+                    echo "<script>
                         alert('Login Gagal! Pastikan username dan password benar.');
                         window.location.href = '../view/index.php';
                       </script>";
-
+                }
 
             } elseif ($_GET['action'] == "register") {
 
@@ -64,13 +59,14 @@ try {
 
                 // } else {
 
-                    $username = $_POST['username'];
-                    $password_raw = $_POST['password'];
-                    $password_cooked = password_hash($password_raw, PASSWORD_DEFAULT);
-                    $class = $_POST['kelas'];
-                    $role = $_POST['role'];
+                $username = $_POST['username'];
+                $password_raw = $_POST['password'];
+                $password_cooked = password_hash($password_raw, PASSWORD_DEFAULT);
+                $class = $_POST['kelas'];
+                $role = $_POST['role'];
+                $fullname = $_POST['fullname'];
 
-                    $siswa->register($username, $password_cooked, $class, $role);
+                $siswa->register($username, $password_cooked, $class, $role, $fullname);
 
                 // }
 
@@ -101,4 +97,5 @@ try {
 } catch (Exception $e) {
     $e->getMessage();
 }
+
 ?>
